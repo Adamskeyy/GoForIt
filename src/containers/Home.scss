@@ -1,7 +1,18 @@
 .homescreen {
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  height: 100%;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+}
+
+.appTitle {
+  color: var(--white-color);
+  margin: 0 0.5em;
+  font-size: 4em;
+  letter-spacing: 0.25em;
 }
 
 .buttonBox {
@@ -21,10 +32,20 @@
   border-radius: 0.5rem;
   cursor: pointer;
   background: var(--blue-color);
-  color: white;
+  color: var(--white-color);
   font-size: 1rem;
 
   &:hover {
     background-color: var(--dark-blue-color);
+  }
+}
+
+@media (max-width: 321px) {
+  .buttonBox {
+    justify-content: space-between;
+  }
+
+  .customButton {
+    padding: 0.25rem 0.5rem;
   }
 }

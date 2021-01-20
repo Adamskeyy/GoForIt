@@ -1,4 +1,7 @@
 .fab {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -8,6 +11,8 @@
   width: 50px;
   background-color: rgb(49, 49, 185);
   border-radius: 50%;
+  transition: 1.2s cubic-bezier(0.09, 0.43, 0.42, 1.09),
+    background-color 0.2s ease-in;
 
   &:hover {
     background-color: rgb(32, 32, 121);

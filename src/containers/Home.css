@@ -1,7 +1,24 @@
 .homescreen {
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  height: 100%;
-  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--background-color);
+}
+
+.appTitle {
+  color: var(--white-color);
+  margin: 0 0.5em;
+  font-size: 4em;
+  letter-spacing: 0.25em;
 }
 
 .buttonBox {
@@ -26,11 +43,22 @@
   border-radius: 0.5rem;
   cursor: pointer;
   background: var(--blue-color);
-  color: white;
+  color: var(--white-color);
   font-size: 1rem;
 }
 
 .customButton:hover {
   background-color: var(--dark-blue-color);
+}
+
+@media (max-width: 321px) {
+  .buttonBox {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .customButton {
+    padding: 0.25rem 0.5rem;
+  }
 }
 /*# sourceMappingURL=Home.css.map */

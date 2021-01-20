@@ -1,4 +1,7 @@
 .fab {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -12,6 +15,8 @@
   width: 50px;
   background-color: #3131b9;
   border-radius: 50%;
+  -webkit-transition: 1.2s cubic-bezier(0.09, 0.43, 0.42, 1.09), background-color 0.2s ease-in;
+  transition: 1.2s cubic-bezier(0.09, 0.43, 0.42, 1.09), background-color 0.2s ease-in;
 }
 
 .fab:hover {

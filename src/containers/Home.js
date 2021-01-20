@@ -41,6 +41,7 @@ const Home = ({ placeName }) => {
       >
         {modalText}
       </Modal>
+      <h1 className="appTitle">Go For It</h1>
       <FAB modalOpened={() => setModalShown((modalShown) => true)} />
     </div>
   );
