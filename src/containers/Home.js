@@ -1,25 +1,40 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import FAB from "../components/FAB/FAB";
 import Modal from "../components/Modal/Modal";
+import "./Home.css";
 
-function Home() {
+const Home = ({ placeName }) => {
   const [modalShown, setModalShown] = useState(false);
-  const placeName = "Tromsø";
+
+  let history = useHistory();
+
+  const handleClick = () => {
+    let path = `${process.env.PUBLIC_URL}/goforit`;
+
+    history.push(path);
+  };
 
   const modalText = (
     <>
       <p>Are you ready for Your journey to {placeName}?</p>
-      <Link to={`${process.env.PUBLIC_URL}/goforit`}>
-        {" "}
-        <button>Yes</button>
-      </Link>
-      <button onClick={() => setModalShown((modalShown) => false)}>No</button>
+      <div className="buttonBox">
+        <button className="customButton" onClick={handleClick}>
+          Show me the way!
+        </button>
+
+        <button
+          className="customButton"
+          onClick={() => setModalShown((modalShown) => false)}
+        >
+          Hell no!
+        </button>
+      </div>
     </>
   );
 
   return (
-    <>
+    <div className="homescreen">
       <Modal
         show={modalShown}
         modalClosed={() => setModalShown((modalShown) => false)}
@@ -27,8 +42,8 @@ function Home() {
         {modalText}
       </Modal>
       <FAB modalOpened={() => setModalShown((modalShown) => true)} />
-    </>
+    </div>
   );
-}
+};
 
 export default Home;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GoogleMapReact from "google-map-react";
-import Spinner from "./Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
+import "./GoForIt.css";
 
 const GoForIt = ({ placeName, placeCoordinates }) => {
   const { lat, lng } = { ...placeCoordinates };

@@ -1,0 +1,36 @@
+.homescreen {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.buttonBox {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.customButton {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: var(--blue-color);
+  color: white;
+  font-size: 1rem;
+}
+
+.customButton:hover {
+  background-color: var(--dark-blue-color);
+}
+/*# sourceMappingURL=Home.css.map */

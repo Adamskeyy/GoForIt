@@ -1,4 +1,5 @@
 import React from "react";
+import "./FAB.css";
 
 const FAB = ({ modalOpened }) => {
   return (

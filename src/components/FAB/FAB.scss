@@ -1,0 +1,15 @@
+.fab {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(49, 49, 185);
+  border-radius: 50%;
+
+  &:hover {
+    background-color: rgb(32, 32, 121);
+  }
+}

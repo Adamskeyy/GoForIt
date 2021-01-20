@@ -5,10 +5,11 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import GoForIt from "./components/GoForIt";
+import GoForIt from "./components/GoForIt/GoForIt";
 import Home from "./containers/Home";
+import "./App.css";
 
-function App() {
+const App = () => {
   const placeName = "Tromsø";
   const placeCoordinates = {
     lat: 69.65361666895359,
@@ -21,20 +22,19 @@ function App() {
         <Switch>
           <Route
             path={`${process.env.PUBLIC_URL}/goforit`}
-            render={(props) => (
-              <GoForIt
-                placeName={placeName}
-                placeCoordinates={placeCoordinates}
-              />
-            )}
+            render={(props) => <GoForIt placeCoordinates={placeCoordinates} />}
           />
-          <Route exact path={`${process.env.PUBLIC_URL}`} component={Home} />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}`}
+            render={(props) => <Home placeName={placeName} />}
+          />
           <Redirect to={`${process.env.PUBLIC_URL}`} />
         </Switch>
       </Router>
     </>
   );
-}
+};
 
 export default App;
 
