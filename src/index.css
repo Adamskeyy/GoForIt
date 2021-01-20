@@ -18,6 +18,17 @@ body {
   position: relative;
 }
 
+.fab {
+  cursor: pointer;
+  display: inline-flex;
+  justify-items: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(49, 49, 185);
+  border-radius: 50%;
+}
+
 .closeModal {
   cursor: pointer;
 }

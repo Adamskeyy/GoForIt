@@ -26,35 +26,42 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
     directionsRenderer.setMap(map);
 
     const calcRoute = () => {
-      let start = new maps.LatLng(
-        currentPosition.center.lat,
-        currentPosition.center.lng
-      );
-      let end = new maps.LatLng(lat, lng);
+      if (currentPosition) {
+        let start = new maps.LatLng(
+          currentPosition.center.lat,
+          currentPosition.center.lng
+        );
+        let end = new maps.LatLng(lat, lng);
 
-      let request = {
-        origin: start,
-        destination: end,
-        travelMode: "DRIVING",
-      };
-      directionsService.route(request, (result, status) => {
-        if (status === "OK") {
-          directionsRenderer.setDirections(result);
-        }
-      });
+        let request = {
+          origin: start,
+          destination: end,
+          travelMode: "DRIVING",
+        };
+        directionsService.route(request, (result, status) => {
+          if (status === "OK") {
+            directionsRenderer.setDirections(result);
+          }
+        });
+      }
     };
+
     calcRoute();
   };
 
   return (
     <div className="map">
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCD5ihqMq750s87Hp0b4QfoJHYTVqcWiRI" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-        yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({ map, maps }) => setRoute(map, maps)}
-      ></GoogleMapReact>
+      {currentPosition ? (
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "AIzaSyCD5ihqMq750s87Hp0b4QfoJHYTVqcWiRI" }}
+          defaultCenter={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => setRoute(map, maps)}
+        ></GoogleMapReact>
+      ) : (
+        <div>One moment!</div>
+      )}
     </div>
   );
 };

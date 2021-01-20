@@ -1,4 +1,12 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
 import GoForIt from "./components/GoForIt";
+import FAB from "./components/FAB";
 
 function App() {
   const placeName = "Tromsø";
@@ -8,6 +16,7 @@ function App() {
   };
   return (
     <div>
+      <FAB />
       <GoForIt placeName={placeName} placeCoordinates={placeCoordinates} />
     </div>
   );
