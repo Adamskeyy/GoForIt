@@ -1,8 +1,8 @@
 import React from "react";
 
-const FAB = () => {
+const FAB = ({ modalOpened }) => {
   return (
-    <div className="fab">
+    <button className="fab" onClick={modalOpened}>
       <i
         className="material-icons"
         style={{
@@ -12,7 +12,7 @@ const FAB = () => {
       >
         arrow_forward
       </i>
-    </div>
+    </button>
   );
 };
 

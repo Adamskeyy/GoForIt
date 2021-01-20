@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import GoForIt from "./components/GoForIt";
-import FAB from "./components/FAB";
+import Home from "./containers/Home";
 
 function App() {
   const placeName = "Tromsø";
@@ -14,11 +14,25 @@ function App() {
     lat: 69.65361666895359,
     lng: 18.954824942426775,
   };
+
   return (
-    <div>
-      <FAB />
-      <GoForIt placeName={placeName} placeCoordinates={placeCoordinates} />
-    </div>
+    <>
+      <Router>
+        <Switch>
+          <Route
+            path={`${process.env.PUBLIC_URL}/goforit`}
+            render={(props) => (
+              <GoForIt
+                placeName={placeName}
+                placeCoordinates={placeCoordinates}
+              />
+            )}
+          />
+          <Route exact path={`${process.env.PUBLIC_URL}`} component={Home} />
+          <Redirect to={`${process.env.PUBLIC_URL}`} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GoogleMapReact from "google-map-react";
+import Spinner from "./Spinner/Spinner";
 
 const GoForIt = ({ placeName, placeCoordinates }) => {
   const { lat, lng } = { ...placeCoordinates };
@@ -60,7 +61,7 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
           onGoogleApiLoaded={({ map, maps }) => setRoute(map, maps)}
         ></GoogleMapReact>
       ) : (
-        <div>One moment!</div>
+        <Spinner />
       )}
     </div>
   );
