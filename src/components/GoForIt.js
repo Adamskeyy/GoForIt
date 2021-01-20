@@ -20,18 +20,7 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
     });
   }
 
-  const renderMarkers = (map, maps) => {
-    new maps.Marker({
-      position: currentPosition.center,
-      map,
-      title: "Starting point",
-    });
-    new maps.Marker({
-      position: defaultProps.center,
-      map,
-      title: "Destination",
-    });
-
+  const setRoute = (map, maps) => {
     let directionsService = new maps.DirectionsService();
     let directionsRenderer = new maps.DirectionsRenderer();
     directionsRenderer.setMap(map);
@@ -56,8 +45,6 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
     };
     calcRoute();
   };
-  // wyświetlić marker dla aktualnego położenia i dla celu
-  // wyznaczyć i wyswietlić trasę między punktami
 
   return (
     <div className="map">
@@ -66,7 +53,7 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
+        onGoogleApiLoaded={({ map, maps }) => setRoute(map, maps)}
       ></GoogleMapReact>
     </div>
   );
