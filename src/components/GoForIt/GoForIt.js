@@ -55,7 +55,7 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
     <div className="map">
       {currentPosition ? (
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyCD5ihqMq750s87Hp0b4QfoJHYTVqcWiRI" }}
+          bootstrapURLKeys={{ key: process.env.MAPS_API_KEY }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
           yesIWantToUseGoogleMapApiInternals
