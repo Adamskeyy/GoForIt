@@ -3,7 +3,8 @@ import GoogleMapReact from "google-map-react";
 import Spinner from "../Spinner/Spinner";
 import "./GoForIt.css";
 
-const GoForIt = ({ placeName, placeCoordinates }) => {
+const GoForIt = ({ placeCoordinates }) => {
+  // usePosition
   const { lat, lng } = { ...placeCoordinates };
   const [currentPosition, setCurrentPosition] = useState();
 
@@ -12,16 +13,19 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
     zoom: 6,
   };
 
+  // useEffect
   if (navigator.geolocation && !currentPosition) {
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition(({ coords }) => {
       let currPosition = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
+        // position
+        lat: coords.latitude,
+        lng: coords.longitude,
       };
       setCurrentPosition({ center: currPosition });
     });
   }
 
+  // useCallback
   const setRoute = (map, maps) => {
     let directionsService = new maps.DirectionsService();
     let directionsRenderer = new maps.DirectionsRenderer();
@@ -29,6 +33,7 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
 
     const calcRoute = () => {
       if (currentPosition) {
+        // if NOT
         let start = new maps.LatLng(
           currentPosition.center.lat,
           currentPosition.center.lng
@@ -50,7 +55,7 @@ const GoForIt = ({ placeName, placeCoordinates }) => {
 
     calcRoute();
   };
-
+  //
   return (
     <div className="map">
       {currentPosition ? (

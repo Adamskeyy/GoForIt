@@ -15,24 +15,22 @@ const App = () => {
     lat: 69.65361666895359,
     lng: 18.954824942426775,
   };
-
+  // GOOGLE DIRECTIONS - INSTRUKCJE
   return (
-    <>
-      <Router>
-        <Switch>
-          <Route
-            path={`${process.env.PUBLIC_URL}/goforit`}
-            render={(props) => <GoForIt placeCoordinates={placeCoordinates} />}
-          />
-          <Route
-            exact
-            path={`${process.env.PUBLIC_URL}`}
-            render={(props) => <Home placeName={placeName} />}
-          />
-          <Redirect to={`${process.env.PUBLIC_URL}`} />
-        </Switch>
-      </Router>
-    </>
+    <Router>
+      <Switch>
+        <Route
+          path={`${process.env.PUBLIC_URL}/goforit`}
+          render={(props) => <GoForIt placeCoordinates={placeCoordinates} />}
+        />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}`}
+          render={(props) => <Home placeName={placeName} />}
+        />
+        <Redirect to={`${process.env.PUBLIC_URL}`} />
+      </Switch>
+    </Router>
   );
 };
 
